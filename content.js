@@ -6,21 +6,15 @@ window.onload = () => {
 
   // フェードインのアニメーション関数
   function fadeIn(element) {
-    let opacity = 0;
-    let position = -100;
-
-    // 100ミリ秒ごとにopacityを増加させる
-    const intervalId = setInterval(function() {
-      opacity += 0.1;
-      element.style.opacity = opacity;
-
-      // opacityが1以上になったらアニメーションを停止
-      if (opacity >= 1) {
-        clearInterval(intervalId);
-      }
-    }, 100);
+    
+    //テキストを動かす処理
+    setInterval(function() {
+      element.style.transition = 'transform 1s ease-in-out';
+      element.style.transform = 'translateY(-150%)';
+    }, 10);    
   }
 
+  //テキストを消す処理
   function removetext(element) {
     setTimeout(function() {
       element.remove();
@@ -42,9 +36,12 @@ window.onload = () => {
 
         //cssの指定
         newParagraph.style.color=("#ff0000");
+        newParagraph.style.fontSize=("32px");
+        newParagraph.style.fontWeight=("700");
+        newParagraph.style.opacity=("0.7");
         newParagraph.style.position=("absolute");
         newParagraph.style.right=("10%");
-        newParagraph.style.bottom=("10%");
+        newParagraph.style.bottom=("0");
 
         // <body>要素に新しい<p>要素を追加
         document.body.appendChild(newParagraph);
@@ -68,9 +65,12 @@ window.onload = () => {
 
          //cssの指定
         newParagraph.style.color=("#0000ff");
+        newParagraph.style.fontSize=("32px");
+        newParagraph.style.fontWeight=("700");
+        newParagraph.style.opacity=("0.7");
         newParagraph.style.position=("absolute");
         newParagraph.style.right=("10%");
-        newParagraph.style.bottom=("10%");
+        newParagraph.style.bottom=("0");
 
         // <body>要素に新しい<p>要素を追加
         document.body.appendChild(newParagraph);
@@ -94,13 +94,18 @@ window.onload = () => {
         newParagraph.classList.add('animete-text3');
         
          //cssの指定
-        newParagraph.style.color=("#00ff00");
+        newParagraph.style.color=("black");
+        newParagraph.style.fontSize=("32px");
+        newParagraph.style.fontWeight=("700");
+        newParagraph.style.opacity=("0.7");
         newParagraph.style.position=("absolute");
         newParagraph.style.right=("10%");
-        newParagraph.style.bottom=("10%");
+        newParagraph.style.bottom=("0");
         
         // <body>要素に新しい<p>要素を追加
         document.body.appendChild(newParagraph);
+
+        fadeIn(newParagraph);
 
         //pタグを削除する
         const chrometextdata = document.querySelector(".animete-text3");
